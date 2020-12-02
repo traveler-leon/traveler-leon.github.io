@@ -242,7 +242,7 @@
   <entry>
     <title>test2</title>
     <url>/2020/12/02/test2/</url>
-    <content><![CDATA[<p>##这是一条测试<br><img src="/.io//test2.jpg" alt="test2"></p>
+    <content><![CDATA[<p>##这是一条测试<br><img src="/images/dog.jpg"></p>
 ]]></content>
   </entry>
 </search>
