@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>newpapername</title>
-    <url>/2020/12/01/newpapername/</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
     <title></title>
     <url>/2020/12/01/linair/</url>
     <content><![CDATA[<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line">%matplotlib inline</span><br></pre></td></tr></table></figure>
@@ -29,7 +24,7 @@
 .dataframe thead th &#123;
     text-align: right;
 &#125;</code></pre>
-<p></style></p>
+<p></style><p></p>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -94,7 +89,7 @@
 .dataframe thead th &#123;
     text-align: right;
 &#125;</code></pre>
-<p></style></p>
+<p></style><p></p>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -148,7 +143,7 @@
 .dataframe thead th &#123;
     text-align: right;
 &#125;</code></pre>
-<p></style></p>
+<p></style><p></p>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -230,13 +225,24 @@
 
 
 
-<p><img src="output_17_0.png" alt="png"></p>
+<p><img src="/.io//output_17_0.png" alt="png"></p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">plt.scatter(X_test,Y_test,color=<span class="string">&#x27;red&#x27;</span>)</span><br><span class="line">plt.plot(X_test,regressor.predict(X_test),color=<span class="string">&#x27;blue&#x27;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
 
 
 
-<p><img src="output_18_0.png" alt="png"></p>
+<p><img src="/.io//output_18_0.png" alt="png"></p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+]]></content>
+  </entry>
+  <entry>
+    <title>newpapername</title>
+    <url>/2020/12/01/newpapername/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>test2</title>
+    <url>/2020/12/02/test2/</url>
+    <content><![CDATA[<p>##这是一条测试<br><img src="/.io//test2.jpg" alt="test2"></p>
 ]]></content>
   </entry>
 </search>
