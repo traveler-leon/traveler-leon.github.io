@@ -5,4 +5,238 @@
     <url>/2020/12/01/newpapername/</url>
     <content><![CDATA[]]></content>
   </entry>
+  <entry>
+    <title></title>
+    <url>/2020/12/01/linair/</url>
+    <content><![CDATA[<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line">%matplotlib inline</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">dataset = pd.read_csv(<span class="string">&#x27;./studentscores.csv&#x27;</span>)</span><br><span class="line">dataset.head(<span class="number">5</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+<pre><code>.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+
+.dataframe thead th &#123;
+    text-align: right;
+&#125;</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Hours</th>
+      <th>Scores</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2.5</td>
+      <td>21</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>5.1</td>
+      <td>47</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3.2</td>
+      <td>27</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>8.5</td>
+      <td>75</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>3.5</td>
+      <td>30</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+<h1 id="第三步：提取特征"><a href="#第三步：提取特征" class="headerlink" title="第三步：提取特征"></a>第三步：提取特征</h1><h2 id="提取特征：学习时间-提取标签：学习成绩"><a href="#提取特征：学习时间-提取标签：学习成绩" class="headerlink" title="提取特征：学习时间 提取标签：学习成绩"></a>提取特征：学习时间 提取标签：学习成绩</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">feature_columns=[<span class="string">&#x27;Hours&#x27;</span>]</span><br><span class="line">label_column=[<span class="string">&#x27;Scores&#x27;</span>]</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">features = dataset[feature_columns]</span><br><span class="line">label = dataset[label_column]</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">features.head()</span><br></pre></td></tr></table></figure>
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+<pre><code>.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+
+.dataframe thead th &#123;
+    text-align: right;
+&#125;</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Hours</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2.5</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>5.1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3.2</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>8.5</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>3.5</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">label.head()</span><br></pre></td></tr></table></figure>
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+<pre><code>.dataframe tbody tr th &#123;
+    vertical-align: top;
+&#125;
+
+.dataframe thead th &#123;
+    text-align: right;
+&#125;</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Scores</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>21</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>47</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>27</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>75</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>30</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">X = features.values</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">Y = label.values</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">X</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>array([[2.5],
+       [5.1],
+       [3.2],
+       [8.5],
+       [3.5],
+       [1.5],
+       [9.2],
+       [5.5],
+       [8.3],
+       [2.7],
+       [7.7],
+       [5.9],
+       [4.5],
+       [3.3],
+       [1.1],
+       [8.9],
+       [2.5],
+       [1.9],
+       [6.1],
+       [7.4],
+       [2.7],
+       [4.8],
+       [3.8],
+       [6.9],
+       [7.8]])</code></pre>
+<h1 id="将数据集拆分为1-4的测试集-3-4的训练集"><a href="#将数据集拆分为1-4的测试集-3-4的训练集" class="headerlink" title="将数据集拆分为1/4的测试集 3/4的训练集"></a>将数据集拆分为1/4的测试集 3/4的训练集</h1><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split</span><br><span class="line">X_train,X_test,Y_train,Y_test = train_test_split(X,Y,test_size=<span class="number">1</span>/<span class="number">4</span>,random_state=<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+
+<h1 id="对训练集进行模型训练"><a href="#对训练集进行模型训练" class="headerlink" title="对训练集进行模型训练"></a>对训练集进行模型训练</h1><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.linear_model <span class="keyword">import</span> LinearRegression</span><br><span class="line">regressor = LinearRegression()</span><br><span class="line">regressor = regressor.fit(X_train,Y_train)</span><br></pre></td></tr></table></figure>
+
+<h1 id="对测试集进行预测"><a href="#对测试集进行预测" class="headerlink" title="对测试集进行预测"></a>对测试集进行预测</h1><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">Y_pred = regressor.predict(X_test)</span><br></pre></td></tr></table></figure>
+
+<h1 id="可视化"><a href="#可视化" class="headerlink" title="可视化"></a>可视化</h1><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">plt.scatter(X_train,Y_train,color=<span class="string">&#x27;red&#x27;</span>)</span><br><span class="line">plt.plot(X_train,regressor.predict(X_train),color=<span class="string">&#x27;blue&#x27;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+
+
+<p><img src="output_17_0.png" alt="png"></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">plt.scatter(X_test,Y_test,color=<span class="string">&#x27;red&#x27;</span>)</span><br><span class="line">plt.plot(X_test,regressor.predict(X_test),color=<span class="string">&#x27;blue&#x27;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+
+
+<p><img src="output_18_0.png" alt="png"></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+]]></content>
+  </entry>
 </search>
