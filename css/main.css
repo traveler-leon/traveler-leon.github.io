@@ -1174,7 +1174,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #9d783c;
+  background: #ff21fa;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2325,7 +2325,7 @@ ul.breadcrumb li + li:last-child {
   }
 }
 .site-brand-container {
-  background: url("https://ftp.bmp.ovh/imgs/2020/12/6982a2c6d0a08efa.jpg");
+  background: rgba(0,0,0,0.9);
 }
 @media (max-width: 991px) {
   .site-brand-container {
