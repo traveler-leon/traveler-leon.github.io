@@ -1174,7 +1174,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #ffb1ff;
+  background: #daffe8;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2665,4 +2665,36 @@ ul.breadcrumb li + li:last-child {
   .pagination {
     margin: 8px 0 0;
   }
+}
+body {
+  background: url("https://ftp.bmp.ovh/imgs/2020/12/af5761fab05e81b5.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: 50% 50%;
+  background-size: cover;
+  -webkit-background-size: cover;
+  -o-background-size: cover;
+  -moz-background-size: cover;
+  -ms-background-size: cover;
+/*这是设置底部文字, 看个人需要修改*/
+}
+body #footer > div > div {
+  color: #de5e5e;
+}
+.post {
+  width: 100%;
+  margin-top: 1em;
+  margin-bottom: 3em;
+  padding: 1em;
+  -webkit-box-shadow: 0 0 0.5em rgba(202,203,203,0.5);
+}
+.brand {
+  background: transparent;
+}
+.menu .menu-item a {
+  color: #000;
+}
+.menu .menu-item a:hover {
+  color: #00bfff;
+  border-bottom-color: #00bfff;
 }
