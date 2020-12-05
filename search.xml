@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>test5</title>
+    <url>/2020/12/05/test5/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
     <title>Render(3D世界的图片是如何被现实出来的)</title>
     <url>/2020/12/04/render/</url>
     <content><![CDATA[<h1 id="渲染"><a href="#渲染" class="headerlink" title="渲染"></a>渲染</h1><h2 id="出发点"><a href="#出发点" class="headerlink" title="出发点"></a>出发点</h2><p>渲染属于计算机图形学的范畴，本身涉及到很多的坐标转换等计算，本次记录不做具体的数学推导，只做一个原理的记录，仅为了方面搞明白图像处理中的边界问题。</p>
@@ -21,11 +26,6 @@
 <p>这其实是一个很重要的问题，关系到图片现实的质量，尤其是边界问题，<br><img src="/images/%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF/rend1.gif"><br><img src="/images/%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF/rend2.gif"><br>可以看出三角形越小，最终被渲染出的图片越精细和真实，那具体如何做到呢？<br>这是一个网格细分的问题，有很多技术可以做到这样的细分，也有很多优秀的算法，比如loop网格细分技术等，这里不做过多的了解。<br><img src="/images/%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF/%E4%B8%89%E8%A7%92%E5%BD%A2%E6%8F%92%E5%80%BC.png"><br>你可以理解为，一个三角形如果要细分出更小的三角形，最方便的方法就是找到每一条边的中点，连接起来，那么一个三角形将编程四个三角形，达到三角形细分的作用。</p>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>讲到这里也达到了我们的目的了，目的是为了引出最后的三角形细分的知识，因为它类似于图像处理中的边界问题，有点像插值技术。在图像处理中，尤其是医学图像处理中，由于噪声和边界模糊等问题，边界的识别一直是一个值得去思考的问题。仅此记录，便于理解PointRend技术。</p>
 ]]></content>
-  </entry>
-  <entry>
-    <title>test5</title>
-    <url>/2020/12/05/test5/</url>
-    <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title>交叉熵的由来</title>
