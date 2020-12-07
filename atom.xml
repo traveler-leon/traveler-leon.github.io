@@ -6,7 +6,7 @@
   <link href="https://traveler-leon.github.io/atom.xml" rel="self"/>
   
   <link href="https://traveler-leon.github.io/"/>
-  <updated>2020-12-05T08:05:53.632Z</updated>
+  <updated>2020-12-07T11:27:21.080Z</updated>
   <id>https://traveler-leon.github.io/</id>
   
   <author>
@@ -17,15 +17,33 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>医学图像分类</title>
+    <link href="https://traveler-leon.github.io/2020/12/07/%E5%8C%BB%E5%AD%A6%E5%9B%BE%E5%83%8F%E5%88%86%E7%B1%BB/"/>
+    <id>https://traveler-leon.github.io/2020/12/07/%E5%8C%BB%E5%AD%A6%E5%9B%BE%E5%83%8F%E5%88%86%E7%B1%BB/</id>
+    <published>2020-12-07T11:12:54.000Z</published>
+    <updated>2020-12-07T11:27:21.080Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;在医学图像中会有很多的分类,不同种类有不同的特点和用途，下面做一个简单的概述和总结&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="图像处理" scheme="https://traveler-leon.github.io/categories/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
+    
+    
+    <category term="-医学图像分类 -CT -MRI -x-ray -uv" scheme="https://traveler-leon.github.io/tags/%E5%8C%BB%E5%AD%A6%E5%9B%BE%E5%83%8F%E5%88%86%E7%B1%BB-CT-MRI-x-ray-uv/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Render(3D世界的图片是如何被现实出来的)</title>
     <link href="https://traveler-leon.github.io/2020/12/04/render/"/>
     <id>https://traveler-leon.github.io/2020/12/04/render/</id>
     <published>2020-12-04T06:23:10.000Z</published>
-    <updated>2020-12-05T08:05:53.632Z</updated>
+    <updated>2020-12-07T11:17:17.626Z</updated>
     
     
-    <summary type="html">&lt;h1 id=&quot;渲染&quot;&gt;&lt;a href=&quot;#渲染&quot; class=&quot;headerlink&quot; title=&quot;渲染&quot;&gt;&lt;/a&gt;渲染&lt;/h1&gt;&lt;h2 id=&quot;出发点&quot;&gt;&lt;a href=&quot;#出发点&quot; class=&quot;headerlink&quot; title=&quot;出发点&quot;&gt;&lt;/a&gt;出发点&lt;/h2&gt;&lt;p&gt;渲染属于计算机图形学的范畴，本身涉及到很多的坐标转换等计算，本次记录不做具体的数学推导，只做一个原理的记录，仅为了方面搞明白图像处理中的边界问题。&lt;/p&gt;
-&lt;h2 id=&quot;渲染的专业理解&quot;&gt;&lt;a href=&quot;#渲染的专业理解&quot; class=&quot;headerlink&quot; title=&quot;渲染的专业理解&quot;&gt;&lt;/a&gt;渲染的专业理解&lt;/h2&gt;&lt;p&gt;先甩出渲染管线的专业解释：&lt;br&gt;&lt;strong&gt;将三维场景中的模型，按照设定好的环境、灯光、材质及渲染参数。二维投影成数字图像的过程&lt;/strong&gt;。之所以是2D图像，是因为我们的屏幕是2D的，因此我们需要通过2D屏幕来呈现3D场景&lt;/p&gt;</summary>
+    <summary type="html">&lt;h1 id=&quot;渲染&quot;&gt;&lt;a href=&quot;#渲染&quot; class=&quot;headerlink&quot; title=&quot;渲染&quot;&gt;&lt;/a&gt;渲染&lt;/h1&gt;&lt;h2 id=&quot;出发点&quot;&gt;&lt;a href=&quot;#出发点&quot; class=&quot;headerlink&quot; title=&quot;出发点&quot;&gt;&lt;/a&gt;出发点&lt;/h2&gt;&lt;p&gt;渲染属于计算机图形学的范畴，本身涉及到很多的坐标转换等计算，本次记录不做具体的数学推导，只做一个原理的记录，仅为了方面搞明白图像处理中的边界问题。&lt;/p&gt;</summary>
     
     
     
