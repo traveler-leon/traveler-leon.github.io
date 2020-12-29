@@ -6,7 +6,7 @@
   <link href="https://traveler-leon.github.io/atom.xml" rel="self"/>
   
   <link href="https://traveler-leon.github.io/"/>
-  <updated>2020-12-29T01:35:55.277Z</updated>
+  <updated>2020-12-29T14:31:21.616Z</updated>
   <id>https://traveler-leon.github.io/</id>
   
   <author>
@@ -17,16 +17,57 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>k-means(K均值算法)</title>
+    <link href="https://traveler-leon.github.io/2020/12/29/k-means/"/>
+    <id>https://traveler-leon.github.io/2020/12/29/k-means/</id>
+    <published>2020-12-29T13:52:25.000Z</published>
+    <updated>2020-12-29T14:31:21.616Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;什么是聚类&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#什么是聚类&quot;&gt;&lt;/a&gt; 什么是聚类&lt;/h2&gt;
+&lt;p&gt;聚类是无监督学习的一个小分支，其本质就是将样本通过亲近程度对其进行分类，你可能会有疑问？分多少类别？亲近程度如何衡量？&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="机器学习" scheme="https://traveler-leon.github.io/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+    <category term="-机器学习 -聚类 -k均值算法 -k-means" scheme="https://traveler-leon.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E8%81%9A%E7%B1%BB-k%E5%9D%87%E5%80%BC%E7%AE%97%E6%B3%95-k-means/"/>
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="https://traveler-leon.github.io/2020/12/29/1/"/>
+    <id>https://traveler-leon.github.io/2020/12/29/1/</id>
+    <published>2020-12-29T13:11:38.049Z</published>
+    <updated>2020-12-29T13:46:51.916Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;k-meansk均值聚类&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#k-meansk均值聚类&quot;&gt;&lt;/a&gt; K-means（k均值聚类）&lt;/h1&gt;
+&lt;h2 id=&quot;什么是聚类&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#什么是聚类&quot;&gt;&lt;/a&gt; 什么是聚类&lt;/h2&gt;
+&lt;p&gt;聚类是无监督学习的一个小分支，其本质就是将样本通过亲近程度对其进行分类，你可能会有疑问？分多少类别？亲近程度如何衡量？&lt;/p&gt;
+&lt;h3 id=&quot;分多少类&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#分多少类&quot;&gt;&lt;/a&gt; 分多少类&lt;/h3&gt;
+&lt;p&gt;至于分多少类，有的是自动学习得到，比如DBSCAN等，有的是手动指定，比如K-means等。后续的代码中会有体现&lt;/p&gt;</summary>
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
     <title>推荐系统及评测标准</title>
     <link href="https://traveler-leon.github.io/2020/12/29/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E5%8F%8A%E8%AF%84%E6%B5%8B%E6%A0%87%E5%87%86/"/>
     <id>https://traveler-leon.github.io/2020/12/29/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E5%8F%8A%E8%AF%84%E6%B5%8B%E6%A0%87%E5%87%86/</id>
     <published>2020-12-29T01:31:22.000Z</published>
-    <updated>2020-12-29T01:35:55.277Z</updated>
+    <updated>2020-12-29T13:54:56.663Z</updated>
     
     
-    <summary type="html">&lt;p&gt;本篇博文将对推荐系统以及评测标准做一个简单介绍&lt;br&gt;</summary>
+    <summary type="html">&lt;p&gt;本篇博文将对推荐系统以及评测标准做一个简单介绍&lt;/p&gt;</summary>
     
     
+    
+    <category term="推荐系统" scheme="https://traveler-leon.github.io/categories/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/"/>
     
     
     <category term="推荐系统" scheme="https://traveler-leon.github.io/tags/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/"/>
@@ -38,10 +79,12 @@
     <link href="https://traveler-leon.github.io/2020/12/13/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E7%9A%84%E7%90%86%E8%A7%A3/"/>
     <id>https://traveler-leon.github.io/2020/12/13/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E7%9A%84%E7%90%86%E8%A7%A3/</id>
     <published>2020-12-13T11:12:54.000Z</published>
-    <updated>2020-12-13T09:17:18.712Z</updated>
+    <updated>2020-12-29T13:58:10.507Z</updated>
     
     
-    <summary type="html">&lt;p&gt;本篇博文仅对深度学习中的几个简单的名字做一个朴素的解释和理解&lt;br&gt;</summary>
+    <summary type="html">&lt;p&gt;本篇博文仅对深度学习中的几个简单的名字做一个朴素的解释和理解&lt;/p&gt;
+&lt;h2 id=&quot;生物神经网络的工作模式&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#生物神经网络的工作模式&quot;&gt;&lt;/a&gt; 生物神经网络的工作模式&lt;/h2&gt;
+&lt;p&gt;神经网络的发现可以说是将人工智能又拔高了一个度，现今很多了不起的成果都是在此之上完成的，那它是如何被发现的呢？既然 是“神经”，自然可以联想到人体里面的的神经，及生物神经。&lt;/p&gt;</summary>
     
     
     
