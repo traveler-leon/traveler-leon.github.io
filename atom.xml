@@ -57,25 +57,6 @@
   </entry>
   
   <entry>
-    <title></title>
-    <link href="https://traveler-leon.github.io/2020/12/29/1/"/>
-    <id>https://traveler-leon.github.io/2020/12/29/1/</id>
-    <published>2020-12-29T13:11:38.049Z</published>
-    <updated>2020-12-29T13:46:51.916Z</updated>
-    
-    
-    <summary type="html">&lt;h1 id=&quot;k-meansk均值聚类&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#k-meansk均值聚类&quot;&gt;&lt;/a&gt; K-means（k均值聚类）&lt;/h1&gt;
-&lt;h2 id=&quot;什么是聚类&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#什么是聚类&quot;&gt;&lt;/a&gt; 什么是聚类&lt;/h2&gt;
-&lt;p&gt;聚类是无监督学习的一个小分支，其本质就是将样本通过亲近程度对其进行分类，你可能会有疑问？分多少类别？亲近程度如何衡量？&lt;/p&gt;
-&lt;h3 id=&quot;分多少类&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#分多少类&quot;&gt;&lt;/a&gt; 分多少类&lt;/h3&gt;
-&lt;p&gt;至于分多少类，有的是自动学习得到，比如DBSCAN等，有的是手动指定，比如K-means等。后续的代码中会有体现&lt;/p&gt;</summary>
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
     <title>推荐系统及评测标准</title>
     <link href="https://traveler-leon.github.io/2020/12/29/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E5%8F%8A%E8%AF%84%E6%B5%8B%E6%A0%87%E5%87%86/"/>
     <id>https://traveler-leon.github.io/2020/12/29/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E5%8F%8A%E8%AF%84%E6%B5%8B%E6%A0%87%E5%87%86/</id>
