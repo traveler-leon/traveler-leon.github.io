@@ -6,7 +6,7 @@
   <link href="https://traveler-leon.github.io/atom.xml" rel="self"/>
   
   <link href="https://traveler-leon.github.io/"/>
-  <updated>2020-12-29T14:34:25.991Z</updated>
+  <updated>2020-12-30T04:27:15.213Z</updated>
   <id>https://traveler-leon.github.io/</id>
   
   <author>
@@ -17,11 +17,31 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>dbscan(密度聚类)</title>
+    <link href="https://traveler-leon.github.io/2020/12/30/dbscan/"/>
+    <id>https://traveler-leon.github.io/2020/12/30/dbscan/</id>
+    <published>2020-12-30T03:36:26.000Z</published>
+    <updated>2020-12-30T04:27:15.213Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;什么是聚类&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#什么是聚类&quot;&gt;&lt;/a&gt; 什么是聚类&lt;/h2&gt;
+&lt;p&gt;聚类是无监督学习的一个小分支，其本质就是将样本通过亲近程度对其进行分类，你可能会有疑问？分多少类别？亲近程度如何衡量？&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="机器学习" scheme="https://traveler-leon.github.io/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+    <category term="-机器学习 -聚类 -密度聚类 -DBSCAN" scheme="https://traveler-leon.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E8%81%9A%E7%B1%BB-%E5%AF%86%E5%BA%A6%E8%81%9A%E7%B1%BB-DBSCAN/"/>
+    
+  </entry>
+  
+  <entry>
     <title>k-means(K均值算法)</title>
     <link href="https://traveler-leon.github.io/2020/12/29/k-means/"/>
     <id>https://traveler-leon.github.io/2020/12/29/k-means/</id>
     <published>2020-12-29T13:52:25.000Z</published>
-    <updated>2020-12-29T14:34:25.991Z</updated>
+    <updated>2020-12-29T14:38:17.024Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;什么是聚类&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#什么是聚类&quot;&gt;&lt;/a&gt; 什么是聚类&lt;/h2&gt;
