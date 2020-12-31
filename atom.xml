@@ -6,7 +6,7 @@
   <link href="https://traveler-leon.github.io/atom.xml" rel="self"/>
   
   <link href="https://traveler-leon.github.io/"/>
-  <updated>2020-12-31T08:12:10.710Z</updated>
+  <updated>2020-12-31T08:16:25.587Z</updated>
   <id>https://traveler-leon.github.io/</id>
   
   <author>
@@ -21,10 +21,11 @@
     <link href="https://traveler-leon.github.io/2020/12/31/decision-tree/"/>
     <id>https://traveler-leon.github.io/2020/12/31/decision-tree/</id>
     <published>2020-12-31T07:54:51.000Z</published>
-    <updated>2020-12-31T08:12:10.710Z</updated>
+    <updated>2020-12-31T08:16:25.587Z</updated>
     
     
-    <summary type="html">&lt;p&gt;决策树算法是通过对训练数据集进行不断的分类，最终建立起来的决策树。&lt;br&gt;既然是建立一棵树，自然就下如何划分根节点和叶子节点，如何建立左子树和右子树等问题。&lt;br&gt;</summary>
+    <summary type="html">&lt;p&gt;决策树算法是通过对训练数据集进行不断的分类，最终建立起来的决策树。&lt;br /&gt;
+既然是建立一棵树，自然就下如何划分根节点和叶子节点，如何建立左子树和右子树等问题。&lt;/p&gt;</summary>
     
     
     
