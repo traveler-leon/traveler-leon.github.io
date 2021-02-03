@@ -20,28 +20,28 @@
     var CONFIG = {"hostname":"traveler-leon.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":8,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="渲染出发点渲染属于计算机图形学的范畴，本身涉及到很多的坐标转换等计算，本次记录不做具体的数学推导，只做一个原理的记录，仅为了方面搞明白图像处理中的边界问题。">
+  <meta name="description" content="渲染  出发点 渲染属于计算机图形学的范畴，本身涉及到很多的坐标转换等计算，本次记录不做具体的数学推导，只做一个原理的记录，仅为了方面搞明白图像处理中的边界问题。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Render(3D世界的图片是如何被现实出来的)">
 <meta property="og:url" content="https://traveler-leon.github.io/2020/12/04/render/index.html">
 <meta property="og:site_name" content="Leon&#39;s Blogs">
-<meta property="og:description" content="渲染出发点渲染属于计算机图形学的范畴，本身涉及到很多的坐标转换等计算，本次记录不做具体的数学推导，只做一个原理的记录，仅为了方面搞明白图像处理中的边界问题。">
+<meta property="og:description" content="渲染  出发点 渲染属于计算机图形学的范畴，本身涉及到很多的坐标转换等计算，本次记录不做具体的数学推导，只做一个原理的记录，仅为了方面搞明白图像处理中的边界问题。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://traveler-leon.github.io/images/渲染管线/点.png">
-<meta property="og:image" content="https://traveler-leon.github.io/images/渲染管线/面.png">
-<meta property="og:image" content="https://traveler-leon.github.io/images/渲染管线/3d小球.png">
-<meta property="og:image" content="https://traveler-leon.github.io/images/渲染管线/成像.jpg">
-<meta property="og:image" content="https://traveler-leon.github.io/images/渲染管线/渲染.jpg">
-<meta property="og:image" content="https://traveler-leon.github.io/images/渲染管线/多个三角形.jpg">
-<meta property="og:image" content="https://traveler-leon.github.io/images/渲染管线/rend1.gif">
-<meta property="og:image" content="https://traveler-leon.github.io/images/渲染管线/rend2.gif">
-<meta property="og:image" content="https://traveler-leon.github.io/images/渲染管线/三角形插值.png">
+<meta property="og:image" content="https://traveler-leon.github.io/images/%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF/%E7%82%B9.png">
+<meta property="og:image" content="https://traveler-leon.github.io/images/%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF/%E9%9D%A2.png">
+<meta property="og:image" content="https://traveler-leon.github.io/images/%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF/3d%E5%B0%8F%E7%90%83.png">
+<meta property="og:image" content="https://traveler-leon.github.io/images/%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF/%E6%88%90%E5%83%8F.jpg">
+<meta property="og:image" content="https://traveler-leon.github.io/images/%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF/%E6%B8%B2%E6%9F%93.jpg">
+<meta property="og:image" content="https://traveler-leon.github.io/images/%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF/%E5%A4%9A%E4%B8%AA%E4%B8%89%E8%A7%92%E5%BD%A2.jpg">
+<meta property="og:image" content="https://traveler-leon.github.io/images/%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF/rend1.gif">
+<meta property="og:image" content="https://traveler-leon.github.io/images/%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF/rend2.gif">
+<meta property="og:image" content="https://traveler-leon.github.io/images/%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF/%E4%B8%89%E8%A7%92%E5%BD%A2%E6%8F%92%E5%80%BC.png">
 <meta property="article:published_time" content="2020-12-04T06:23:10.000Z">
 <meta property="article:modified_time" content="2020-12-07T11:17:17.626Z">
 <meta property="article:author" content="Leon">
 <meta property="article:tag" content="-render -渲染 -计算机图形学">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://traveler-leon.github.io/images/渲染管线/点.png">
+<meta name="twitter:image" content="https://traveler-leon.github.io/images/%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF/%E7%82%B9.png">
 
 <link rel="canonical" href="https://traveler-leon.github.io/2020/12/04/render/">
 
@@ -316,23 +316,54 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="渲染"><a href="#渲染" class="headerlink" title="渲染"></a>渲染</h1><h2 id="出发点"><a href="#出发点" class="headerlink" title="出发点"></a>出发点</h2><p>渲染属于计算机图形学的范畴，本身涉及到很多的坐标转换等计算，本次记录不做具体的数学推导，只做一个原理的记录，仅为了方面搞明白图像处理中的边界问题。<br><a id="more"></a></p>
-<h2 id="渲染的专业理解"><a href="#渲染的专业理解" class="headerlink" title="渲染的专业理解"></a>渲染的专业理解</h2><p>先甩出渲染管线的专业解释：<br><strong>将三维场景中的模型，按照设定好的环境、灯光、材质及渲染参数。二维投影成数字图像的过程</strong>。之所以是2D图像，是因为我们的屏幕是2D的，因此我们需要通过2D屏幕来呈现3D场景</p>
-<h2 id="原理分析"><a href="#原理分析" class="headerlink" title="原理分析"></a>原理分析</h2><h3 id="物理成像理解"><a href="#物理成像理解" class="headerlink" title="物理成像理解"></a>物理成像理解</h3><p>可以想一下我们如何拍照(因为这就是一个渲染的过程)。<br>a.首先是找到要拍照的物体，比如人；<br>b.调整好相机角度；<br>c.卡擦，拍照。  </p>
-<p>在计算机中，我们最终要成像，其实也是这么一个过程，里面的本地坐标和世界坐标转换等操作等操作都是为了模拟完成现实中的操作。<br><strong>请记住上面讲的实际的一个拍照成像过程，因为下面计算机的成像过程就是对物理世界的一个模仿和复现</strong></p>
-<h3 id="基础知识储备"><a href="#基础知识储备" class="headerlink" title="基础知识储备"></a>基础知识储备</h3><p>我们小学老师都教过关于点、线、面的知识。  </p>
+        <h1 id="渲染"><a class="markdownIt-Anchor" href="#渲染"></a> 渲染</h1>
+<h2 id="出发点"><a class="markdownIt-Anchor" href="#出发点"></a> 出发点</h2>
+<p>渲染属于计算机图形学的范畴，本身涉及到很多的坐标转换等计算，本次记录不做具体的数学推导，只做一个原理的记录，仅为了方面搞明白图像处理中的边界问题。</p>
+<a id="more"></a>
+<h2 id="渲染的专业理解"><a class="markdownIt-Anchor" href="#渲染的专业理解"></a> 渲染的专业理解</h2>
+<p>先甩出渲染管线的专业解释：<br />
+<strong>将三维场景中的模型，按照设定好的环境、灯光、材质及渲染参数。二维投影成数字图像的过程</strong>。之所以是2D图像，是因为我们的屏幕是2D的，因此我们需要通过2D屏幕来呈现3D场景</p>
+<h2 id="原理分析"><a class="markdownIt-Anchor" href="#原理分析"></a> 原理分析</h2>
+<h3 id="物理成像理解"><a class="markdownIt-Anchor" href="#物理成像理解"></a> 物理成像理解</h3>
+<p>可以想一下我们如何拍照(因为这就是一个渲染的过程)。<br />
+a.首先是找到要拍照的物体，比如人；<br />
+b.调整好相机角度；<br />
+c.卡擦，拍照。</p>
+<p>在计算机中，我们最终要成像，其实也是这么一个过程，里面的本地坐标和世界坐标转换等操作等操作都是为了模拟完成现实中的操作。<br />
+<strong>请记住上面讲的实际的一个拍照成像过程，因为下面计算机的成像过程就是对物理世界的一个模仿和复现</strong></p>
+<h3 id="基础知识储备"><a class="markdownIt-Anchor" href="#基础知识储备"></a> 基础知识储备</h3>
+<p>我们小学老师都教过关于点、线、面的知识。</p>
 <ol>
-<li>要构成一条直线，至少两个点。  </li>
-<li>要构成一个面，至少三个点。<br><img src="/images/渲染管线/点.png" alt=""><img src="/images/渲染管线/面.png" alt=""></li>
+<li>要构成一条直线，至少两个点。</li>
+<li>要构成一个面，至少三个点。<br />
+<img src="/images/%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF/%E7%82%B9.png" alt="" /><img src="/images/%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF/%E9%9D%A2.png" alt="" /></li>
 </ol>
-<p>一个3维实体就是有无数面构成的，所以在计算机图形学中，构成图像成像的最小单元就是三角形。<br><img src="/images/渲染管线/3d小球.png" alt=""></p>
-<h3 id="问题锁定"><a href="#问题锁定" class="headerlink" title="问题锁定"></a>问题锁定</h3><p>要搞明白计算机如何现实一张图片出来，其实本质就是如何将这些三角形表示到屏幕上，那好办，只要我弄明白一个三角形是如何现实出来，就知道一幅图是如何现实出来了。</p>
-<h3 id="渲染过程"><a href="#渲染过程" class="headerlink" title="渲染过程"></a>渲染过程</h3><p>惯例甩出一张图<br><img src="/images/渲染管线/成像.jpg" alt=""><br>同样和现实做一个对应：<br>现实中的相机—对应这里的白色小块，我们可以将它比作相机。<br>现实中的被拍物体—对应这里的三角形。<br>现实中的拍照成像—对应这里的中间的屏幕，可以看作就是显示屏。</p>
-<p>在实际成像中，现实世界中要拍照成像，是要依托光线的，如果没有光线，将无法成像，在这里，左侧的白色块状物可以比作我们的相机，中间是就是我们的显示屏(2D屏幕)，三角形就是我们要拍照的物体，相机发出的光照射到三角形上，同时通过顶点的光线与屏幕相交于三个点，这三个点就是3D世界的三角形映射到2D世界上的一个呈现。将三个点相连，得到的就是屏幕上的三角形<br><img src="/images/渲染管线/渲染.jpg" alt=""></p>
-<p>将格子作为像素之类的比方，可以知道，这样三角形就被现实到屏幕上，真实物体都是有无数的三角形作为基础构成，所以通过将所有的三角形在通过同样的方法投影出来，那么物体的照片就会被展示出来，这里其实还有很多问题没有讲，比如三角形在空间中的遮挡问题如何解决等，这些先不做讲解，只要记住最朴素的原理就好。<br><img src="/images/渲染管线/多个三角形.jpg" alt=""></p>
-<h3 id="三角形的粒度问题"><a href="#三角形的粒度问题" class="headerlink" title="三角形的粒度问题"></a>三角形的粒度问题</h3><p>现在还有一个问题要讲解一下，关于这个最小单元的三角形，到底有多小？太大会则么样？</p>
-<p>这其实是一个很重要的问题，关系到图片现实的质量，尤其是边界问题，<br><img src="/images/渲染管线/rend1.gif" alt=""><br><img src="/images/渲染管线/rend2.gif" alt=""><br>可以看出三角形越小，最终被渲染出的图片越精细和真实，那具体如何做到呢？<br>这是一个网格细分的问题，有很多技术可以做到这样的细分，也有很多优秀的算法，比如loop网格细分技术等，这里不做过多的了解。<br><img src="/images/渲染管线/三角形插值.png" alt=""><br>你可以理解为，一个三角形如果要细分出更小的三角形，最方便的方法就是找到每一条边的中点，连接起来，那么一个三角形将编程四个三角形，达到三角形细分的作用。</p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>讲到这里也达到了我们的目的了，目的是为了引出最后的三角形细分的知识，因为它类似于图像处理中的边界问题，有点像插值技术。在图像处理中，尤其是医学图像处理中，由于噪声和边界模糊等问题，边界的识别一直是一个值得去思考的问题。仅此记录，便于理解PointRend技术。</p>
+<p>一个3维实体就是有无数面构成的，所以在计算机图形学中，构成图像成像的最小单元就是三角形。<br />
+<img src="/images/%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF/3d%E5%B0%8F%E7%90%83.png" alt="" /></p>
+<h3 id="问题锁定"><a class="markdownIt-Anchor" href="#问题锁定"></a> 问题锁定</h3>
+<p>要搞明白计算机如何现实一张图片出来，其实本质就是如何将这些三角形表示到屏幕上，那好办，只要我弄明白一个三角形是如何现实出来，就知道一幅图是如何现实出来了。</p>
+<h3 id="渲染过程"><a class="markdownIt-Anchor" href="#渲染过程"></a> 渲染过程</h3>
+<p>惯例甩出一张图<br />
+<img src="/images/%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF/%E6%88%90%E5%83%8F.jpg" alt="" /><br />
+同样和现实做一个对应：<br />
+现实中的相机–对应这里的白色小块，我们可以将它比作相机。<br />
+现实中的被拍物体–对应这里的三角形。<br />
+现实中的拍照成像–对应这里的中间的屏幕，可以看作就是显示屏。</p>
+<p>在实际成像中，现实世界中要拍照成像，是要依托光线的，如果没有光线，将无法成像，在这里，左侧的白色块状物可以比作我们的相机，中间是就是我们的显示屏(2D屏幕)，三角形就是我们要拍照的物体，相机发出的光照射到三角形上，同时通过顶点的光线与屏幕相交于三个点，这三个点就是3D世界的三角形映射到2D世界上的一个呈现。将三个点相连，得到的就是屏幕上的三角形<br />
+<img src="/images/%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF/%E6%B8%B2%E6%9F%93.jpg" alt="" /></p>
+<p>将格子作为像素之类的比方，可以知道，这样三角形就被现实到屏幕上，真实物体都是有无数的三角形作为基础构成，所以通过将所有的三角形在通过同样的方法投影出来，那么物体的照片就会被展示出来，这里其实还有很多问题没有讲，比如三角形在空间中的遮挡问题如何解决等，这些先不做讲解，只要记住最朴素的原理就好。<br />
+<img src="/images/%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF/%E5%A4%9A%E4%B8%AA%E4%B8%89%E8%A7%92%E5%BD%A2.jpg" alt="" /></p>
+<h3 id="三角形的粒度问题"><a class="markdownIt-Anchor" href="#三角形的粒度问题"></a> 三角形的粒度问题</h3>
+<p>现在还有一个问题要讲解一下，关于这个最小单元的三角形，到底有多小？太大会则么样？</p>
+<p>这其实是一个很重要的问题，关系到图片现实的质量，尤其是边界问题，<br />
+<img src="/images/%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF/rend1.gif" alt="" /><br />
+<img src="/images/%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF/rend2.gif" alt="" /><br />
+可以看出三角形越小，最终被渲染出的图片越精细和真实，那具体如何做到呢？<br />
+这是一个网格细分的问题，有很多技术可以做到这样的细分，也有很多优秀的算法，比如loop网格细分技术等，这里不做过多的了解。<br />
+<img src="/images/%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF/%E4%B8%89%E8%A7%92%E5%BD%A2%E6%8F%92%E5%80%BC.png" alt="" /><br />
+你可以理解为，一个三角形如果要细分出更小的三角形，最方便的方法就是找到每一条边的中点，连接起来，那么一个三角形将编程四个三角形，达到三角形细分的作用。</p>
+<h2 id="总结"><a class="markdownIt-Anchor" href="#总结"></a> 总结</h2>
+<p>讲到这里也达到了我们的目的了，目的是为了引出最后的三角形细分的知识，因为它类似于图像处理中的边界问题，有点像插值技术。在图像处理中，尤其是医学图像处理中，由于噪声和边界模糊等问题，边界的识别一直是一个值得去思考的问题。仅此记录，便于理解PointRend技术。</p>
 
     </div>
 	
@@ -451,7 +482,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B8%B2%E6%9F%93"><span class="nav-number">1.</span> <span class="nav-text">渲染</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%BA%E5%8F%91%E7%82%B9"><span class="nav-number">1.1.</span> <span class="nav-text">出发点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B8%B2%E6%9F%93%E7%9A%84%E4%B8%93%E4%B8%9A%E7%90%86%E8%A7%A3"><span class="nav-number">1.2.</span> <span class="nav-text">渲染的专业理解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8E%9F%E7%90%86%E5%88%86%E6%9E%90"><span class="nav-number">1.3.</span> <span class="nav-text">原理分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%89%A9%E7%90%86%E6%88%90%E5%83%8F%E7%90%86%E8%A7%A3"><span class="nav-number">1.3.1.</span> <span class="nav-text">物理成像理解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E5%82%A8%E5%A4%87"><span class="nav-number">1.3.2.</span> <span class="nav-text">基础知识储备</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%97%AE%E9%A2%98%E9%94%81%E5%AE%9A"><span class="nav-number">1.3.3.</span> <span class="nav-text">问题锁定</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B8%B2%E6%9F%93%E8%BF%87%E7%A8%8B"><span class="nav-number">1.3.4.</span> <span class="nav-text">渲染过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%89%E8%A7%92%E5%BD%A2%E7%9A%84%E7%B2%92%E5%BA%A6%E9%97%AE%E9%A2%98"><span class="nav-number">1.3.5.</span> <span class="nav-text">三角形的粒度问题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">1.4.</span> <span class="nav-text">总结</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B8%B2%E6%9F%93"><span class="nav-number">1.</span> <span class="nav-text"> 渲染</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%BA%E5%8F%91%E7%82%B9"><span class="nav-number">1.1.</span> <span class="nav-text"> 出发点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B8%B2%E6%9F%93%E7%9A%84%E4%B8%93%E4%B8%9A%E7%90%86%E8%A7%A3"><span class="nav-number">1.2.</span> <span class="nav-text"> 渲染的专业理解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8E%9F%E7%90%86%E5%88%86%E6%9E%90"><span class="nav-number">1.3.</span> <span class="nav-text"> 原理分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%89%A9%E7%90%86%E6%88%90%E5%83%8F%E7%90%86%E8%A7%A3"><span class="nav-number">1.3.1.</span> <span class="nav-text"> 物理成像理解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E5%82%A8%E5%A4%87"><span class="nav-number">1.3.2.</span> <span class="nav-text"> 基础知识储备</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%97%AE%E9%A2%98%E9%94%81%E5%AE%9A"><span class="nav-number">1.3.3.</span> <span class="nav-text"> 问题锁定</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B8%B2%E6%9F%93%E8%BF%87%E7%A8%8B"><span class="nav-number">1.3.4.</span> <span class="nav-text"> 渲染过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%89%E8%A7%92%E5%BD%A2%E7%9A%84%E7%B2%92%E5%BA%A6%E9%97%AE%E9%A2%98"><span class="nav-number">1.3.5.</span> <span class="nav-text"> 三角形的粒度问题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">1.4.</span> <span class="nav-text"> 总结</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -564,12 +595,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">21k</span>
+    <span title="站点总字数">23k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">19 分钟</span>
+    <span title="站点阅读时长">21 分钟</span>
 </div>
 
         
