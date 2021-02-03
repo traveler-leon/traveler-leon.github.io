@@ -275,6 +275,54 @@ c.卡擦，拍照。</p>
 ]]></content>
   </entry>
   <entry>
+    <title>什么是flask</title>
+    <url>/2021/02/03/%E4%BB%80%E4%B9%88%E6%98%AFflask/</url>
+    <content><![CDATA[<p>flask在架设网站的结构中，属于一个代码框架，用于处理一系列的逻辑事项，完成路由分发(及根据前端请求，找到对应的视图函数)，其他的工作如报文打包回传等，都有服务器进行完成。</p>
+<a id="more"></a>
+<h2 id="代码详解"><a class="markdownIt-Anchor" href="#代码详解"></a> 代码详解</h2>
+<p><strong>最简单的flask代码实现</strong><br />
+‘’'python<br />
+# conding:utf-8</p>
+<pre><code>from flask import Flask
+
+app = Flask(__name__,
+            static_url_path=&quot;/python&quot;,
+            static_folder=&quot;static&quot;,
+            template_folder=&quot;templates&quot;
+            )
+
+@app.route(&quot;/&quot;)
+def index():
+    &quot;&quot;&quot;定义的试图函数&quot;&quot;&quot;
+    return &quot;hello&quot;
+
+if __name__ == '__main__':
+    app.run()
+
+'''
+</code></pre>
+<p><strong>1.首先关于导入模块</strong></p>
+<p>最好是导入具体的包，如：<br />
+from flask import Flask<br />
+而不是所有的一次性导入，如：<br />
+from flask import *</p>
+<p>2.<strong>关于__name__</strong><br />
+这里的__name__表示的是整个模块的位置。</p>
+<p>**3.关于静态文件   **<br />
+默认情况下，项目的静态文件会放到默认的这个模块的下是static文件下，但是你也可以改变，可以通过static_folder参数来进行指定。</p>
+<p>**4.关于模板文件   **</p>
+<p>默认情况下所有的模板文件会放到templates文件夹下，如果要改变，可以通过template_folder进行指定。</p>
+<p>**5.关于url访问路径   **<br />
+默认情况下我们在前端会通过如<em><a href="http://127.0.0.1:5000/static/index.html">http://127.0.0.1:5000/static/index.html</a></em>这样的方式访问后端，这里的static就是默认的url路径，如果要改变成<em><a href="http://127.0.0.1:5000/python/index.html">http://127.0.0.1:5000/python/index.html</a></em>，可以通过改变参数static_url_path=&quot;/python&quot;，来指定，虽然改变了前端访问的路径，但是此时的静态文件，还是存在原来的static文件夹下。</p>
+]]></content>
+      <categories>
+        <category>Flask框架</category>
+      </categories>
+      <tags>
+        <tag>-Flask -什么是Flask</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>医学图像分类</title>
     <url>/2020/12/07/%E5%8C%BB%E5%AD%A6%E5%9B%BE%E5%83%8F%E5%88%86%E7%B1%BB/</url>
     <content><![CDATA[<p>在医学图像中会有很多的分类,不同种类有不同的特点和用途，下面做一个简单的概述和总结</p>
