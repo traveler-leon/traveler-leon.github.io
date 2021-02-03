@@ -6,7 +6,7 @@
   <link href="https://traveler-leon.github.io/atom.xml" rel="self"/>
   
   <link href="https://traveler-leon.github.io/"/>
-  <updated>2020-12-31T08:16:25.587Z</updated>
+  <updated>2021-02-03T15:58:12.881Z</updated>
   <id>https://traveler-leon.github.io/</id>
   
   <author>
@@ -17,11 +17,30 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>什么是flask</title>
+    <link href="https://traveler-leon.github.io/2021/02/03/%E4%BB%80%E4%B9%88%E6%98%AFflask/"/>
+    <id>https://traveler-leon.github.io/2021/02/03/%E4%BB%80%E4%B9%88%E6%98%AFflask/</id>
+    <published>2021-02-03T15:27:23.000Z</published>
+    <updated>2021-02-03T15:58:12.881Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;flask在架设网站的结构中，属于一个代码框架，用于处理一系列的逻辑事项，完成路由分发(及根据前端请求，找到对应的视图函数)，其他的工作如报文打包回传等，都有服务器进行完成。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Flask框架" scheme="https://traveler-leon.github.io/categories/Flask%E6%A1%86%E6%9E%B6/"/>
+    
+    
+    <category term="-Flask -什么是Flask" scheme="https://traveler-leon.github.io/tags/Flask-%E4%BB%80%E4%B9%88%E6%98%AFFlask/"/>
+    
+  </entry>
+  
+  <entry>
     <title>decision_tree(决策树)</title>
     <link href="https://traveler-leon.github.io/2020/12/31/decision-tree/"/>
     <id>https://traveler-leon.github.io/2020/12/31/decision-tree/</id>
     <published>2020-12-31T07:54:51.000Z</published>
-    <updated>2020-12-31T08:16:25.587Z</updated>
+    <updated>2021-02-03T15:58:57.318Z</updated>
     
     
     <summary type="html">&lt;p&gt;决策树算法是通过对训练数据集进行不断的分类，最终建立起来的决策树。&lt;br /&gt;
@@ -124,7 +143,7 @@
     <updated>2020-12-07T11:27:21.080Z</updated>
     
     
-    <summary type="html">&lt;p&gt;在医学图像中会有很多的分类,不同种类有不同的特点和用途，下面做一个简单的概述和总结&lt;br&gt;</summary>
+    <summary type="html">&lt;p&gt;在医学图像中会有很多的分类,不同种类有不同的特点和用途，下面做一个简单的概述和总结&lt;/p&gt;</summary>
     
     
     
@@ -143,7 +162,9 @@
     <updated>2020-12-07T11:17:17.626Z</updated>
     
     
-    <summary type="html">&lt;h1 id=&quot;渲染&quot;&gt;&lt;a href=&quot;#渲染&quot; class=&quot;headerlink&quot; title=&quot;渲染&quot;&gt;&lt;/a&gt;渲染&lt;/h1&gt;&lt;h2 id=&quot;出发点&quot;&gt;&lt;a href=&quot;#出发点&quot; class=&quot;headerlink&quot; title=&quot;出发点&quot;&gt;&lt;/a&gt;出发点&lt;/h2&gt;&lt;p&gt;渲染属于计算机图形学的范畴，本身涉及到很多的坐标转换等计算，本次记录不做具体的数学推导，只做一个原理的记录，仅为了方面搞明白图像处理中的边界问题。&lt;br&gt;</summary>
+    <summary type="html">&lt;h1 id=&quot;渲染&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#渲染&quot;&gt;&lt;/a&gt; 渲染&lt;/h1&gt;
+&lt;h2 id=&quot;出发点&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#出发点&quot;&gt;&lt;/a&gt; 出发点&lt;/h2&gt;
+&lt;p&gt;渲染属于计算机图形学的范畴，本身涉及到很多的坐标转换等计算，本次记录不做具体的数学推导，只做一个原理的记录，仅为了方面搞明白图像处理中的边界问题。&lt;/p&gt;</summary>
     
     
     
@@ -162,10 +183,17 @@
     <updated>2020-12-02T11:26:02.180Z</updated>
     
     
-    <summary type="html">&lt;h2 id=&quot;克劳德·艾尔伍德·香农&quot;&gt;&lt;a href=&quot;#克劳德·艾尔伍德·香农&quot; class=&quot;headerlink&quot; title=&quot;克劳德·艾尔伍德·香农&quot;&gt;&lt;/a&gt;克劳德·艾尔伍德·香农&lt;/h2&gt;&lt;p&gt;网上有句话说，爱因斯坦发明了相对论，但却没能把我们带进相对论的时代；而香农开创了信息论，且把人类带入了信息的时代，不是说二者谁更厉害，而是香农的地位远比我们想的要高得多，如果有兴趣，推荐读一读《香农传》，可能了解那个时代的背景，自然会对那时候的论点有更深刻的认识。&lt;/p&gt;
-&lt;p&gt;香农熵&lt;br&gt;香农熵其实本意是信息熵，但是关于熵的概念最初不是应用在信息论中，而是物理化学中，下面先看看最初熵的概念&lt;/p&gt;
-&lt;p&gt;物理熵(各自瞎起名)&lt;br&gt;物理中的熵表示的是分子在空间中的位置不确定性，不确定性越高，熵越高，反之则越小，比如固体的不确定性低，液体次之，气体则很高，因为气体中的分子相对固体液体，显得更加活跃。&lt;/p&gt;
-&lt;p&gt;信息熵&lt;br&gt;信息熵中不是描述分子中的位置不确定行，而是和信息有密切关系，既然和信息相关，那我就以语言来进行举例说明，因为语言就是人类用来传递信息的，&lt;br&gt;我理解的信息熵：信息熵基于具体场景下确定结果的信息总量。听着可能有点绕口，下面逐个解释&lt;br&gt;如下图所示&lt;br&gt;&lt;img src=&quot;/images/交叉熵/盒子里的字母.png&quot; alt&gt;&lt;/p&gt;</summary>
+    <summary type="html">&lt;h2 id=&quot;克劳德艾尔伍德香农&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#克劳德艾尔伍德香农&quot;&gt;&lt;/a&gt; 克劳德·艾尔伍德·香农&lt;/h2&gt;
+&lt;p&gt;网上有句话说，爱因斯坦发明了相对论，但却没能把我们带进相对论的时代；而香农开创了信息论，且把人类带入了信息的时代，不是说二者谁更厉害，而是香农的地位远比我们想的要高得多，如果有兴趣，推荐读一读《香农传》，可能了解那个时代的背景，自然会对那时候的论点有更深刻的认识。&lt;/p&gt;
+&lt;p&gt;香农熵&lt;br&gt;
+香农熵其实本意是信息熵，但是关于熵的概念最初不是应用在信息论中，而是物理化学中，下面先看看最初熵的概念&lt;/p&gt;
+&lt;p&gt;物理熵(各自瞎起名)&lt;br&gt;
+物理中的熵表示的是分子在空间中的位置不确定性，不确定性越高，熵越高，反之则越小，比如固体的不确定性低，液体次之，气体则很高，因为气体中的分子相对固体液体，显得更加活跃。&lt;/p&gt;
+&lt;p&gt;信息熵&lt;br&gt;
+信息熵中不是描述分子中的位置不确定行，而是和信息有密切关系，既然和信息相关，那我就以语言来进行举例说明，因为语言就是人类用来传递信息的，&lt;br&gt;
+我理解的信息熵：信息熵基于具体场景下确定结果的信息总量。听着可能有点绕口，下面逐个解释&lt;br&gt;
+如下图所示&lt;br&gt;
+&lt;img src=&quot;/images/%E4%BA%A4%E5%8F%89%E7%86%B5/%E7%9B%92%E5%AD%90%E9%87%8C%E7%9A%84%E5%AD%97%E6%AF%8D.png&quot; alt&gt;&lt;/p&gt;</summary>
     
     
     
