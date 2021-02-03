@@ -28,9 +28,9 @@
 <meta property="og:description" content="flask在架设网站的结构中，属于一个代码框架，用于处理一系列的逻辑事项，完成路由分发(及根据前端请求，找到对应的视图函数)，其他的工作如报文打包回传等，都有服务器进行完成。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-02-03T15:27:23.000Z">
-<meta property="article:modified_time" content="2021-02-03T15:58:12.881Z">
+<meta property="article:modified_time" content="2021-02-03T16:13:51.153Z">
 <meta property="article:author" content="Leon">
-<meta property="article:tag" content="-Flask -什么是Flask">
+<meta property="article:tag" content="-什么是Flask">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="https://traveler-leon.github.io/2021/02/03/%E4%BB%80%E4%B9%88%E6%98%AFflask/">
@@ -233,10 +233,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2021-02-03 23:27:23 / 修改时间：23:58:12" itemprop="dateCreated datePublished" datetime="2021-02-03T23:27:23+08:00">2021-02-03</time>
+              <time title="创建时间：2021-02-03 23:27:23" itemprop="dateCreated datePublished" datetime="2021-02-03T23:27:23+08:00">2021-02-03</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-02-04 00:13:51" itemprop="dateModified" datetime="2021-02-04T00:13:51+08:00">2021-02-04</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -281,7 +287,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>903</span>
+              <span>879</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -300,12 +306,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>flask在架设网站的结构中，属于一个代码框架，用于处理一系列的逻辑事项，完成路由分发(及根据前端请求，找到对应的视图函数)，其他的工作如报文打包回传等，都有服务器进行完成。</p>
-<a id="more"></a>
-<h2 id="代码详解"><a class="markdownIt-Anchor" href="#代码详解"></a> 代码详解</h2>
-<p><strong>最简单的flask代码实现</strong><br />
-‘’'python<br />
-# conding:utf-8</p>
+        <p>flask在架设网站的结构中，属于一个代码框架，用于处理一系列的逻辑事项，完成路由分发(及根据前端请求，找到对应的视图函数)，其他的工作如报文打包回传等，都有服务器进行完成。<br><a id="more"></a></p>
+<h2 id="代码详解"><a href="#代码详解" class="headerlink" title="代码详解"></a>代码详解</h2><p><strong>最简单的flask代码实现</strong><br>    ‘’’python</p>
 <pre><code>from flask import Flask
 
 app = Flask(__name__,
@@ -319,24 +321,17 @@ def index():
     &quot;&quot;&quot;定义的试图函数&quot;&quot;&quot;
     return &quot;hello&quot;
 
-if __name__ == '__main__':
+if __name__ == &#39;__main__&#39;:
     app.run()
 
-'''
-</code></pre>
-<p><strong>1.首先关于导入模块</strong></p>
-<p>最好是导入具体的包，如：<br />
-from flask import Flask<br />
-而不是所有的一次性导入，如：<br />
-from flask import *</p>
-<p>2.<strong>关于__name__</strong><br />
-这里的__name__表示的是整个模块的位置。</p>
-<p>**3.关于静态文件   **<br />
-默认情况下，项目的静态文件会放到默认的这个模块的下是static文件下，但是你也可以改变，可以通过static_folder参数来进行指定。</p>
-<p>**4.关于模板文件   **</p>
-<p>默认情况下所有的模板文件会放到templates文件夹下，如果要改变，可以通过template_folder进行指定。</p>
-<p>**5.关于url访问路径   **<br />
-默认情况下我们在前端会通过如<em><a target="_blank" rel="noopener" href="http://127.0.0.1:5000/static/index.html">http://127.0.0.1:5000/static/index.html</a></em>这样的方式访问后端，这里的static就是默认的url路径，如果要改变成<em><a target="_blank" rel="noopener" href="http://127.0.0.1:5000/python/index.html">http://127.0.0.1:5000/python/index.html</a></em>，可以通过改变参数static_url_path=&quot;/python&quot;，来指定，虽然改变了前端访问的路径，但是此时的静态文件，还是存在原来的static文件夹下。</p>
+&#39;&#39;&#39;
+</code></pre><p><strong>1.首先关于导入模块</strong></p>
+<p>最好是导入具体的包，如：<br>from flask import Flask<br>而不是所有的一次性导入，如：<br>from flask import *</p>
+<p><strong>2.关于<strong>name</strong></strong><br>这里的<strong>name</strong>表示的是整个模块的位置。   </p>
+<p><strong>3.关于静态文件</strong><br>默认情况下，项目的静态文件会放到默认的这个模块的下是static文件下，但是你也可以改变，可以通过static_folder参数来进行指定。   </p>
+<p><strong>4.关于模板文件</strong>   </p>
+<p>默认情况下所有的模板文件会放到templates文件夹下，如果要改变，可以通过template_folder进行指定。  </p>
+<p><strong>5.关于url访问路径</strong><br>默认情况下我们在前端会通过如<em><a target="_blank" rel="noopener" href="http://127.0.0.1:5000/static/index.html">http://127.0.0.1:5000/static/index.html</a></em>这样的方式访问后端，这里的static就是默认的url路径，如果要改变成<em><a target="_blank" rel="noopener" href="http://127.0.0.1:5000/python/index.html">http://127.0.0.1:5000/python/index.html</a></em>，可以通过改变参数static_url_path=”/python”，来指定，虽然改变了前端访问的路径，但是此时的静态文件，还是存在原来的static文件夹下。</p>
 
     </div>
 	
@@ -380,7 +375,7 @@ from flask import *</p>
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/Flask-%E4%BB%80%E4%B9%88%E6%98%AFFlask/" rel="tag"># -Flask -什么是Flask</a>
+              <a href="/tags/%E4%BB%80%E4%B9%88%E6%98%AFFlask/" rel="tag"># -什么是Flask</a>
           </div>
 
         
@@ -452,7 +447,7 @@ from flask import *</p>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E8%AF%A6%E8%A7%A3"><span class="nav-number">1.</span> <span class="nav-text"> 代码详解</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E8%AF%A6%E8%A7%A3"><span class="nav-number">1.</span> <span class="nav-text">代码详解</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -565,12 +560,12 @@ from flask import *</p>
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">23k</span>
+    <span title="站点总字数">21k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">21 分钟</span>
+    <span title="站点阅读时长">19 分钟</span>
 </div>
 
         

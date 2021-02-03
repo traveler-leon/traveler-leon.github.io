@@ -20,20 +20,20 @@
     var CONFIG = {"hostname":"traveler-leon.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":8,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="克劳德·艾尔伍德·香农 网上有句话说，爱因斯坦发明了相对论，但却没能把我们带进相对论的时代；而香农开创了信息论，且把人类带入了信息的时代，不是说二者谁更厉害，而是香农的地位远比我们想的要高得多，如果有兴趣，推荐读一读《香农传》，可能了解那个时代的背景，自然会对那时候的论点有更深刻的认识。 香农熵 香农熵其实本意是信息熵，但是关于熵的概念最初不是应用在信息论中，而是物理化学中，下面先看看最初熵的概">
+  <meta name="description" content="克劳德·艾尔伍德·香农网上有句话说，爱因斯坦发明了相对论，但却没能把我们带进相对论的时代；而香农开创了信息论，且把人类带入了信息的时代，不是说二者谁更厉害，而是香农的地位远比我们想的要高得多，如果有兴趣，推荐读一读《香农传》，可能了解那个时代的背景，自然会对那时候的论点有更深刻的认识。 香农熵香农熵其实本意是信息熵，但是关于熵的概念最初不是应用在信息论中，而是物理化学中，下面先看看最初熵的概念 物">
 <meta property="og:type" content="article">
 <meta property="og:title" content="交叉熵的由来">
 <meta property="og:url" content="https://traveler-leon.github.io/2020/12/02/%E4%BA%A4%E5%8F%89%E7%86%B5%E7%9A%84%E7%94%B1%E6%9D%A5/index.html">
 <meta property="og:site_name" content="Leon&#39;s Blogs">
-<meta property="og:description" content="克劳德·艾尔伍德·香农 网上有句话说，爱因斯坦发明了相对论，但却没能把我们带进相对论的时代；而香农开创了信息论，且把人类带入了信息的时代，不是说二者谁更厉害，而是香农的地位远比我们想的要高得多，如果有兴趣，推荐读一读《香农传》，可能了解那个时代的背景，自然会对那时候的论点有更深刻的认识。 香农熵 香农熵其实本意是信息熵，但是关于熵的概念最初不是应用在信息论中，而是物理化学中，下面先看看最初熵的概">
+<meta property="og:description" content="克劳德·艾尔伍德·香农网上有句话说，爱因斯坦发明了相对论，但却没能把我们带进相对论的时代；而香农开创了信息论，且把人类带入了信息的时代，不是说二者谁更厉害，而是香农的地位远比我们想的要高得多，如果有兴趣，推荐读一读《香农传》，可能了解那个时代的背景，自然会对那时候的论点有更深刻的认识。 香农熵香农熵其实本意是信息熵，但是关于熵的概念最初不是应用在信息论中，而是物理化学中，下面先看看最初熵的概念 物">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://traveler-leon.github.io/images/%E4%BA%A4%E5%8F%89%E7%86%B5/%E7%9B%92%E5%AD%90%E9%87%8C%E7%9A%84%E5%AD%97%E6%AF%8D.png">
-<meta property="og:image" content="https://traveler-leon.github.io/images/%E4%BA%A4%E5%8F%89%E7%86%B5/%E7%9B%92%E5%AD%90%E9%87%8C%E7%9A%84%E5%B0%8F%E7%90%831.png">
+<meta property="og:image" content="https://traveler-leon.github.io/images/交叉熵/盒子里的字母.png">
+<meta property="og:image" content="https://traveler-leon.github.io/images/交叉熵/盒子里的小球1.png">
 <meta property="article:published_time" content="2020-12-02T08:19:12.000Z">
 <meta property="article:modified_time" content="2020-12-02T11:26:02.180Z">
 <meta property="article:author" content="Leon">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://traveler-leon.github.io/images/%E4%BA%A4%E5%8F%89%E7%86%B5/%E7%9B%92%E5%AD%90%E9%87%8C%E7%9A%84%E5%AD%97%E6%AF%8D.png">
+<meta name="twitter:image" content="https://traveler-leon.github.io/images/交叉熵/盒子里的字母.png">
 
 <link rel="canonical" href="https://traveler-leon.github.io/2020/12/02/%E4%BA%A4%E5%8F%89%E7%86%B5%E7%9A%84%E7%94%B1%E6%9D%A5/">
 
@@ -293,41 +293,17 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="克劳德艾尔伍德香农"><a class="markdownIt-Anchor" href="#克劳德艾尔伍德香农"></a> 克劳德·艾尔伍德·香农</h2>
-<p>网上有句话说，爱因斯坦发明了相对论，但却没能把我们带进相对论的时代；而香农开创了信息论，且把人类带入了信息的时代，不是说二者谁更厉害，而是香农的地位远比我们想的要高得多，如果有兴趣，推荐读一读《香农传》，可能了解那个时代的背景，自然会对那时候的论点有更深刻的认识。</p>
-<p>香农熵<br />
-香农熵其实本意是信息熵，但是关于熵的概念最初不是应用在信息论中，而是物理化学中，下面先看看最初熵的概念</p>
-<p>物理熵(各自瞎起名)<br />
-物理中的熵表示的是分子在空间中的位置不确定性，不确定性越高，熵越高，反之则越小，比如固体的不确定性低，液体次之，气体则很高，因为气体中的分子相对固体液体，显得更加活跃。</p>
-<p>信息熵<br />
-信息熵中不是描述分子中的位置不确定行，而是和信息有密切关系，既然和信息相关，那我就以语言来进行举例说明，因为语言就是人类用来传递信息的，<br />
-我理解的信息熵：信息熵基于具体场景下确定结果的信息总量。听着可能有点绕口，下面逐个解释<br />
-如下图所示<br />
-<img src="/images/%E4%BA%A4%E5%8F%89%E7%86%B5/%E7%9B%92%E5%AD%90%E9%87%8C%E7%9A%84%E5%AD%97%E6%AF%8D.png" alt="" /></p>
-<p>现在做一个实验，在不同的盒子中，取出一个字母。<br />
-假设一种取出字母的具体结果：A,所以在这里A就是确定的结果<br />
-那具体的场景是什么，这里具体的场景就是三堆不同的字母结合，在第一堆里是一个具体的场景，第二堆是一个具体的场景等。<br />
-现在采取问答的方式，来确定信息总量，你可以想作是一个人看着场景里的字母，要问多少句话，才能猜到取出来的这个字母具体是什么，好比是猜谜语游戏。</p>
-<p>对于第一堆(第一个具体场景)：<br />
-张三问：其实不用问就知道结果，因为张三是看着这个场景发问，他已经知道这里只有A,自然可以准确猜到取出的数字就是A，<br />
-所以张三不用向外界获取任何信息，所以信息熵是最小的</p>
-<p>对于第二个堆（第二个具体场景）:<br />
-张三问：是B吗？抽签人回答不是<br />
-张三问：是C吗？抽签人回答不是<br />
-张三问：是D吗？抽签人回答不是<br />
-这时张三才能确定抽签人抽到的是A，所以需要香外界获取三条信息，这时可能会有人问，如果这个人一开口就问是不是A，抽签人回答是，那只需要一条信息就能确定答案，以及还有其他的发问的方式，我理解的是，这个具体场景里本来就有四种字母，所以张三第一次就问到是不是A的，也是一个概率问题，这就为信息熵和概率直接的关系打下了基础，下面会接着讲，这里只需要知道，相比于第一堆的场景，第二堆不确定性更大，至少是要问一个问题才能确定答案，所以信息熵比第一个场景大，第三堆我们也就不说了，只要知道他的信息熵比第一种大就行，这就是熵和信息的关联。</p>
-<p>知道熵和信息的具体关联后，要如何将信息熵与数学结合起来？<br />
-信息熵和概率问题</p>
-<p>看如图三个杯子里分别有四个小球<br />
-<img src="/images/%E4%BA%A4%E5%8F%89%E7%86%B5/%E7%9B%92%E5%AD%90%E9%87%8C%E7%9A%84%E5%B0%8F%E7%90%831.png" alt="" /></p>
-<p>做一个实验，每次取出一个小球放回，取四次，四次取出的结果顺序和杯子里小球的顺序为一样的概率是多少？<br />
-根据之前的套路<br />
-具体的结果:取出顺序和杯子里小球的顺序一样<br />
-具体的场景：第一个杯子，第二个杯子，第三个杯子<br />
-对于第一个杯子(第一个具体场景)：<br />
-具体结果：红红红红<br />
-概率：</p>
-<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>p</mi><mo>=</mo><mi>x</mi><mo>+</mo><mi>y</mi></mrow><annotation encoding="application/x-tex">p=x+y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">p</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">x</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span></span></span></span></p>
+        <h2 id="克劳德·艾尔伍德·香农"><a href="#克劳德·艾尔伍德·香农" class="headerlink" title="克劳德·艾尔伍德·香农"></a>克劳德·艾尔伍德·香农</h2><p>网上有句话说，爱因斯坦发明了相对论，但却没能把我们带进相对论的时代；而香农开创了信息论，且把人类带入了信息的时代，不是说二者谁更厉害，而是香农的地位远比我们想的要高得多，如果有兴趣，推荐读一读《香农传》，可能了解那个时代的背景，自然会对那时候的论点有更深刻的认识。</p>
+<p>香农熵<br>香农熵其实本意是信息熵，但是关于熵的概念最初不是应用在信息论中，而是物理化学中，下面先看看最初熵的概念</p>
+<p>物理熵(各自瞎起名)<br>物理中的熵表示的是分子在空间中的位置不确定性，不确定性越高，熵越高，反之则越小，比如固体的不确定性低，液体次之，气体则很高，因为气体中的分子相对固体液体，显得更加活跃。</p>
+<p>信息熵<br>信息熵中不是描述分子中的位置不确定行，而是和信息有密切关系，既然和信息相关，那我就以语言来进行举例说明，因为语言就是人类用来传递信息的，<br>我理解的信息熵：信息熵基于具体场景下确定结果的信息总量。听着可能有点绕口，下面逐个解释<br>如下图所示<br><img src="/images/交叉熵/盒子里的字母.png" alt=""></p>
+<p>现在做一个实验，在不同的盒子中，取出一个字母。<br>假设一种取出字母的具体结果：A,所以在这里A就是确定的结果<br>那具体的场景是什么，这里具体的场景就是三堆不同的字母结合，在第一堆里是一个具体的场景，第二堆是一个具体的场景等。<br>现在采取问答的方式，来确定信息总量，你可以想作是一个人看着场景里的字母，要问多少句话，才能猜到取出来的这个字母具体是什么，好比是猜谜语游戏。</p>
+<p>对于第一堆(第一个具体场景)：<br>张三问：其实不用问就知道结果，因为张三是看着这个场景发问，他已经知道这里只有A,自然可以准确猜到取出的数字就是A，<br>所以张三不用向外界获取任何信息，所以信息熵是最小的</p>
+<p>对于第二个堆（第二个具体场景）:<br>张三问：是B吗？抽签人回答不是<br>张三问：是C吗？抽签人回答不是<br>张三问：是D吗？抽签人回答不是<br>这时张三才能确定抽签人抽到的是A，所以需要香外界获取三条信息，这时可能会有人问，如果这个人一开口就问是不是A，抽签人回答是，那只需要一条信息就能确定答案，以及还有其他的发问的方式，我理解的是，这个具体场景里本来就有四种字母，所以张三第一次就问到是不是A的，也是一个概率问题，这就为信息熵和概率直接的关系打下了基础，下面会接着讲，这里只需要知道，相比于第一堆的场景，第二堆不确定性更大，至少是要问一个问题才能确定答案，所以信息熵比第一个场景大，第三堆我们也就不说了，只要知道他的信息熵比第一种大就行，这就是熵和信息的关联。</p>
+<p>知道熵和信息的具体关联后，要如何将信息熵与数学结合起来？<br>信息熵和概率问题</p>
+<p>看如图三个杯子里分别有四个小球<br><img src="/images/交叉熵/盒子里的小球1.png" alt=""></p>
+<p>做一个实验，每次取出一个小球放回，取四次，四次取出的结果顺序和杯子里小球的顺序为一样的概率是多少？<br>根据之前的套路<br>具体的结果:取出顺序和杯子里小球的顺序一样<br>具体的场景：第一个杯子，第二个杯子，第三个杯子<br>对于第一个杯子(第一个具体场景)：<br>具体结果：红红红红<br>概率：</p>
+<p>$p=x+y$</p>
 
     </div>
 	
@@ -440,7 +416,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%8B%E5%8A%B3%E5%BE%B7%E8%89%BE%E5%B0%94%E4%BC%8D%E5%BE%B7%E9%A6%99%E5%86%9C"><span class="nav-number">1.</span> <span class="nav-text"> 克劳德·艾尔伍德·香农</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%8B%E5%8A%B3%E5%BE%B7%C2%B7%E8%89%BE%E5%B0%94%E4%BC%8D%E5%BE%B7%C2%B7%E9%A6%99%E5%86%9C"><span class="nav-number">1.</span> <span class="nav-text">克劳德·艾尔伍德·香农</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -553,12 +529,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">23k</span>
+    <span title="站点总字数">21k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">21 分钟</span>
+    <span title="站点阅读时长">19 分钟</span>
 </div>
 
         
