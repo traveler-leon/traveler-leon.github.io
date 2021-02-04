@@ -125,6 +125,37 @@ g(D, A) = H(D) − H(D | A)</p>
       </tags>
   </entry>
   <entry>
+    <title>flask_配置文件解读</title>
+    <url>/2021/02/04/flask-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E8%A7%A3%E8%AF%BB/</url>
+    <content><![CDATA[<p>在编程过程中，配置文件通常用来定义一些重要的变量。所以必须掌握。下面讲解一下在Flask中的三种用法。</p>
+<h2 id="引用方法"><a class="markdownIt-Anchor" href="#引用方法"></a> 引用方法</h2>
+<p><strong>第一种用法</strong><br />
+在模块下创建一个文件，这个文件可以是任何名字和任何后缀，但是通常我们用config.cfg这个的命名和后缀来进行使用。<br />
+<img src="/images/Flask%E4%B9%8B%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E8%A7%A3%E8%AF%BB/1.png" alt="" /></p>
+<p>在这样的情况下，Flask如果要引用配置文件里面的内容，需要通过以下方式：</p>
+ <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">app.config.from_pyfile(<span class="string">&quot;config.cfg&quot;</span>)</span><br></pre></td></tr></table></figure>
+<p><strong>第二种用法</strong><br />
+在第二种用法中，是通过创建类对象的方式，及直接在文件中创建类</p>
+ <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Config</span>(<span class="params"><span class="built_in">object</span></span>):</span></span><br><span class="line">    DEBUG = <span class="literal">True</span></span><br><span class="line">    ITCAST = <span class="string">&quot;python&quot;</span></span><br></pre></td></tr></table></figure>
+<p>然后引用的时候采用</p>
+ <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">app.config.from_object(Config)   </span><br></pre></td></tr></table></figure>
+<p><strong>第三种用法</strong><br />
+配置文件中，本质就是字典的形式存在，所以就可以通过键值对赋值的形式进行引用</p>
+ <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">app.config[<span class="string">&quot;DEBUG&quot;</span>] = <span class="literal">True</span></span><br></pre></td></tr></table></figure>
+<h2 id="具体调用"><a class="markdownIt-Anchor" href="#具体调用"></a> 具体调用</h2>
+<p>以上讲了引用方法，现在要具体使用，还要在引用的基础上进行调用，通常采用提供的get方法，例如</p>
+ <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">app.config.get(<span class="string">&quot;ITCAST&quot;</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="完整示例代码"><a class="markdownIt-Anchor" href="#完整示例代码"></a> 完整示例代码</h2>
+ <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># conding:utf-8</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask</span><br><span class="line"></span><br><span class="line">app = Flask(__name__,</span><br><span class="line">            static_url_path=<span class="string">&quot;/python&quot;</span>,</span><br><span class="line">            static_folder=<span class="string">&quot;static&quot;</span>,</span><br><span class="line">            template_folder=<span class="string">&quot;templates&quot;</span></span><br><span class="line">            )</span><br><span class="line"><span class="comment">#配置参数的使用方式</span></span><br><span class="line"><span class="comment">#1.使用配置文件</span></span><br><span class="line"><span class="comment">#app.config.from_pyfile(&quot;config.cfg&quot;)</span></span><br><span class="line"><span class="comment">#2.类对象的方式导入config</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Config</span>(<span class="params"><span class="built_in">object</span></span>):</span></span><br><span class="line">    DEBUG = <span class="literal">True</span></span><br><span class="line">    ITCAST = <span class="string">&quot;python&quot;</span></span><br><span class="line">app.config.from_object(Config)</span><br><span class="line"></span><br><span class="line"><span class="comment">#3.第三种配置</span></span><br><span class="line"><span class="comment"># app.config[&quot;DEBUG&quot;] = True</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&quot;/&quot;</span></span>)</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">index</span>():</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;定义的试图函数&quot;&quot;&quot;</span></span><br><span class="line">    print(app.config.get(<span class="string">&quot;ITCAST&quot;</span>))</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;hello&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    app.run()</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Flask框架</category>
+      </categories>
+      <tags>
+        <tag>-Flask配置文件解读</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>k-means(K均值算法)</title>
     <url>/2020/12/29/k-means/</url>
     <content><![CDATA[<h2 id="什么是聚类"><a class="markdownIt-Anchor" href="#什么是聚类"></a> 什么是聚类</h2>
@@ -235,35 +266,6 @@ c.卡擦，拍照。</p>
       </tags>
   </entry>
   <entry>
-    <title>什么是flask</title>
-    <url>/2021/02/03/%E4%BB%80%E4%B9%88%E6%98%AFflask/</url>
-    <content><![CDATA[<p>flask在架设网站的结构中，属于一个代码框架，用于处理一系列的逻辑事项，完成路由分发(及根据前端请求，找到对应的视图函数)，其他的工作如报文打包回传等，都有服务器进行完成。</p>
-<a id="more"></a>
-<h2 id="代码详解"><a class="markdownIt-Anchor" href="#代码详解"></a> 代码详解</h2>
-<p><strong>最简单的flask代码实现</strong><br />
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># conding:utf-8</span></span><br><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask</span><br><span class="line"></span><br><span class="line">app = Flask(__name__,</span><br><span class="line">            static_url_path=<span class="string">&quot;/python&quot;</span>,</span><br><span class="line">            static_folder=<span class="string">&quot;static&quot;</span>,</span><br><span class="line">            template_folder=<span class="string">&quot;templates&quot;</span></span><br><span class="line">            )</span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&quot;/&quot;</span></span>)</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">index</span>():</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;定义的试图函数&quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;hello&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    app.run()</span><br><span class="line"></span><br></pre></td></tr></table></figure><br />
-<strong>1.首先关于导入模块</strong></p>
-<p>最好是导入具体的包，如：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask   </span><br></pre></td></tr></table></figure>
-<p>而不是所有的一次性导入，如：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> *</span><br></pre></td></tr></table></figure>
-<p><strong>2.关于__name__</strong><br />
-这里的__name__表示的是整个模块的位置。</p>
-<p><strong>3.关于静态文件</strong><br />
-默认情况下，项目的静态文件会放到默认的这个模块的下是static文件下，但是你也可以改变，可以通过static_folder参数来进行指定。</p>
-<p><strong>4.关于模板文件</strong></p>
-<p>默认情况下所有的模板文件会放到templates文件夹下，如果要改变，可以通过template_folder进行指定。</p>
-<p><strong>5.关于url访问路径</strong><br />
-默认情况下我们在前端会通过如<em><a href="http://127.0.0.1:5000/static/index.html">http://127.0.0.1:5000/static/index.html</a></em>这样的方式访问后端，这里的static就是默认的url路径，如果要改变成<em><a href="http://127.0.0.1:5000/python/index.html">http://127.0.0.1:5000/python/index.html</a></em>，可以通过改变参数static_url_path=&quot;/python&quot;，来指定，虽然改变了前端访问的路径，但是此时的静态文件，还是存在原来的static文件夹下。</p>
-]]></content>
-      <categories>
-        <category>Flask框架</category>
-      </categories>
-      <tags>
-        <tag>-什么是Flask</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>交叉熵的由来</title>
     <url>/2020/12/02/%E4%BA%A4%E5%8F%89%E7%86%B5%E7%9A%84%E7%94%B1%E6%9D%A5/</url>
     <content><![CDATA[<h2 id="克劳德艾尔伍德香农"><a class="markdownIt-Anchor" href="#克劳德艾尔伍德香农"></a> 克劳德·艾尔伍德·香农</h2>
@@ -302,6 +304,35 @@ c.卡擦，拍照。</p>
 概率：</p>
 <p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>p</mi><mo>=</mo><mi>x</mi><mo>+</mo><mi>y</mi></mrow><annotation encoding="application/x-tex">p=x+y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">p</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">x</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span></span></span></span></p>
 ]]></content>
+  </entry>
+  <entry>
+    <title>什么是flask</title>
+    <url>/2021/02/03/%E4%BB%80%E4%B9%88%E6%98%AFflask/</url>
+    <content><![CDATA[<p>flask在架设网站的结构中，属于一个代码框架，用于处理一系列的逻辑事项，完成路由分发(及根据前端请求，找到对应的视图函数)，其他的工作如报文打包回传等，都有服务器进行完成。</p>
+<a id="more"></a>
+<h2 id="代码详解"><a class="markdownIt-Anchor" href="#代码详解"></a> 代码详解</h2>
+<p><strong>最简单的flask代码实现</strong><br />
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># conding:utf-8</span></span><br><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask</span><br><span class="line"></span><br><span class="line">app = Flask(__name__,</span><br><span class="line">            static_url_path=<span class="string">&quot;/python&quot;</span>,</span><br><span class="line">            static_folder=<span class="string">&quot;static&quot;</span>,</span><br><span class="line">            template_folder=<span class="string">&quot;templates&quot;</span></span><br><span class="line">            )</span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&quot;/&quot;</span></span>)</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">index</span>():</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;定义的试图函数&quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;hello&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    app.run()</span><br><span class="line"></span><br></pre></td></tr></table></figure><br />
+<strong>1.首先关于导入模块</strong></p>
+<p>最好是导入具体的包，如：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask   </span><br></pre></td></tr></table></figure>
+<p>而不是所有的一次性导入，如：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> *</span><br></pre></td></tr></table></figure>
+<p><strong>2.关于__name__</strong><br />
+这里的__name__表示的是整个模块的位置。</p>
+<p><strong>3.关于静态文件</strong><br />
+默认情况下，项目的静态文件会放到默认的这个模块的下是static文件下，但是你也可以改变，可以通过static_folder参数来进行指定。</p>
+<p><strong>4.关于模板文件</strong></p>
+<p>默认情况下所有的模板文件会放到templates文件夹下，如果要改变，可以通过template_folder进行指定。</p>
+<p><strong>5.关于url访问路径</strong><br />
+默认情况下我们在前端会通过如<em><a href="http://127.0.0.1:5000/static/index.html">http://127.0.0.1:5000/static/index.html</a></em>这样的方式访问后端，这里的static就是默认的url路径，如果要改变成<em><a href="http://127.0.0.1:5000/python/index.html">http://127.0.0.1:5000/python/index.html</a></em>，可以通过改变参数static_url_path=&quot;/python&quot;，来指定，虽然改变了前端访问的路径，但是此时的静态文件，还是存在原来的static文件夹下。</p>
+]]></content>
+      <categories>
+        <category>Flask框架</category>
+      </categories>
+      <tags>
+        <tag>-什么是Flask</tag>
+      </tags>
   </entry>
   <entry>
     <title>医学图像分类</title>

@@ -6,7 +6,7 @@
   <link href="https://traveler-leon.github.io/atom.xml" rel="self"/>
   
   <link href="https://traveler-leon.github.io/"/>
-  <updated>2021-02-03T16:20:32.766Z</updated>
+  <updated>2021-02-04T02:41:57.461Z</updated>
   <id>https://traveler-leon.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>flask_配置文件解读</title>
+    <link href="https://traveler-leon.github.io/2021/02/04/flask-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E8%A7%A3%E8%AF%BB/"/>
+    <id>https://traveler-leon.github.io/2021/02/04/flask-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E8%A7%A3%E8%AF%BB/</id>
+    <published>2021-02-04T02:14:01.000Z</published>
+    <updated>2021-02-04T02:41:57.461Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;在编程过程中，配置文件通常用来定义一些重要的变量。所以必须掌握。下面讲解一下在Flask中的三种用法。&lt;/p&gt;
+&lt;h2 id=&quot;引用方法&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#引用方法&quot;&gt;&lt;/a&gt; 引用方法&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;第一种用法&lt;/strong&gt;&lt;br&gt;
+在模块下创建一个文件，这个文件可以是任何名字和任何后缀，但是通常我们用config.cfg这个的命名和后缀来进行使用。&lt;br&gt;
+&lt;img src=&quot;/images/Flask%E4%B9%8B%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E8%A7%A3%E8%AF%BB/1.png&quot; alt&gt;&lt;/p&gt;
+&lt;p&gt;在这样的情况下，Flask如果要引用配置文件里面的内容，需要通过以下方式：&lt;/p&gt;
+ &lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;app.config.from_pyfile(&lt;span class=&quot;string&quot;&gt;&amp;quot;config.cfg&amp;quot;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
+    
+    
+    
+    <category term="Flask框架" scheme="https://traveler-leon.github.io/categories/Flask%E6%A1%86%E6%9E%B6/"/>
+    
+    
+    <category term="-Flask配置文件解读" scheme="https://traveler-leon.github.io/tags/Flask%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E8%A7%A3%E8%AF%BB/"/>
+    
+  </entry>
   
   <entry>
     <title>什么是flask</title>
