@@ -125,9 +125,35 @@ g(D, A) = H(D) − H(D | A)</p>
       </tags>
   </entry>
   <entry>
+    <title>Flask访问方法解读</title>
+    <url>/2021/02/04/Flask%E8%AE%BF%E9%97%AE%E6%96%B9%E6%B3%95%E8%A7%A3%E8%AF%BB/</url>
+    <content><![CDATA[<h2 id="访问地址修改"><a class="markdownIt-Anchor" href="#访问地址修改"></a> 访问地址修改</h2>
+<a id="more"></a>
+<p>默认情况下是地址是127.0.0.0,端口是5000，可以通过在app.run中进行修改，也可以开启debug</p>
+ <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">@app.run(<span class="params">host=<span class="string">&quot;0.0.0.0&quot;</span>,port=<span class="number">5000</span>,debug=<span class="literal">True</span></span>)</span></span><br></pre></td></tr></table></figure>
+<p>##访问方法限制<br />
+默认情况一个地址下的始图函数支持所有的请求方法来访问，但是实际的开发中，需要对其进行限制，可以通过在地址映射中指定methods参数进行限制</p>
+ <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&quot;/post_only&quot;</span>,methods=[<span class="string">&quot;POST&quot;</span>]</span>)</span></span><br></pre></td></tr></table></figure>
+<p>从这里可以看出，同一个地址，只要访问方法不一样，就表明是两个不同的东西，这里有点类似C++中的重载，实现了多态性。</p>
+<h2 id="视图跳转"><a class="markdownIt-Anchor" href="#视图跳转"></a> 视图跳转</h2>
+<p>在实际情况中，比如注册，注册完成后，要跳转到另一个页面，其实就是一个始图跳转到另一个始图。</p>
+<p>1.可以通过直接指定地址来进行跳转</p>
+ <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">url = <span class="string">&quot;/&quot;</span></span><br><span class="line"><span class="keyword">return</span> redirect(url)</span><br></pre></td></tr></table></figure>
+<p>2.可以通过url_for进行地址导航，url_for里面是具体的始图函数，可以通过始图函数找到具体的地址</p>
+ <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">url = url_for(<span class="string">&quot;index&quot;</span>)</span><br><span class="line"><span class="keyword">return</span> redirect(url)</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Flask框架</category>
+      </categories>
+      <tags>
+        <tag>-Flask地址访问解读</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>flask_配置文件解读</title>
     <url>/2021/02/04/flask-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E8%A7%A3%E8%AF%BB/</url>
     <content><![CDATA[<p>在编程过程中，配置文件通常用来定义一些重要的变量。所以必须掌握。下面讲解一下在Flask中的三种用法。</p>
+<a id="more"></a>
 <h2 id="引用方法"><a class="markdownIt-Anchor" href="#引用方法"></a> 引用方法</h2>
 <p><strong>第一种用法</strong><br />
 在模块下创建一个文件，这个文件可以是任何名字和任何后缀，但是通常我们用config.cfg这个的命名和后缀来进行使用。<br />
